@@ -7,7 +7,7 @@ use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\ReviewController;
 use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\UserController;
-use App\Http\Controllers\Site\CartController;
+use App\Http\Controllers\Dashboard\CartController;
 use App\Http\Middleware\DashboardLoginMiddelware;
 use Illuminate\Support\Facades\Route;
 
@@ -54,7 +54,8 @@ Route::middleware([
     Route::get('/reviews',[ReviewController::class, 'index'] )->name('reviews');
     Route::delete('reviews/delete/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
-
+    // Carts Route
+    Route::get('/cart',[CartController::class, 'index'] )->name('admin.cart');
 
 // Offers Route
     Route::get('/offers',[OfferController::class, 'index'] )->name('offers');
@@ -63,9 +64,7 @@ Route::middleware([
     Route::get('/offers/edit/{offer}', [OfferController::class, 'edit'])->name('offers.edit');
     Route::put('/offers/edit/{offer}', [OfferController::class, 'update'])->name('offers.update');
     Route::delete('/offers/delete/{offer}', [OfferController::class, 'destroy'])->name('offers.destroy');
-// Carts Route
-    Route::get('/cart',[CartController::class, 'index'] )->name('cart');
-    Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
+
 
 
 });

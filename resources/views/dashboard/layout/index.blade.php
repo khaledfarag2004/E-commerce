@@ -113,6 +113,7 @@
     <a href="{{ route('roles') }}">Roles</a>
     <a href="{{ route('products') }}">Products</a>
     <a href="{{ route('categories') }}">Caterories</a>
+    <a href="{{ route('admin.cart') }}">Carts</a>
     <a href="{{ route('offers') }}">Offers</a>
     <a href="{{ route('reviews') }}">Review</a>
     <a href="{{ route('admin.logout') }}">Logout</a>

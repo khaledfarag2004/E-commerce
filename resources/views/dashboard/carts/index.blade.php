@@ -128,19 +128,22 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Name product</th>
+                <th>Name Product</th>
                 <th>price</th>
+                <th>Name User</th>
+                <th>quantity</th>
                 <th>Created at</th>
                 <th>Updated at</th>
-                <th>Actions</th>
             </tr>
-            @foreach($cart_item as $item)
+            @foreach($carts as $cart)
                 <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->product->name }}</td>
-                    <td>{{ $item->product->price }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->updated_at }}</td>
+                    <td>{{ $cart->id }}</td>
+                    <td>{{ $cart->product->name }}</td>
+                    <td>{{ $cart->product->price }}</td>
+                    <td>{{ $cart->cart->user->name }}</td>
+                    <td>{{ $cart->quantity }}</td>
+                    <td>{{ $cart->created_at }}</td>
+                    <td>{{ $cart->updated_at }}</td>
                     <style>
                         .status-active {
                             color: green;        /* أخضر */
@@ -157,15 +160,7 @@
                         }
                     </style>
 
-                    <td>
 
-                        <!-- Delete -->
-                        <form action="{{ route('cart.destroy', $item->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-delete">Delete</button>
-                        </form>
-                    </td>
                 </tr>
             @endforeach
         </table>
