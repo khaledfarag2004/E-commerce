@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Cart extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'created_at',
+        'updated_at',
+    ];
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function items()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
+    public function total()
+    {
+        return $this->items->sum(function ($item) {
+            return $item->price * $item->quantity;
+        });
+    }
+
+    public function Cartitem()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+}
