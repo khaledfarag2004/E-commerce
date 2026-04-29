@@ -61,6 +61,8 @@
                                 <p class="mb-0 mt-4">{{  $item->product->price  }} $</p>
                             </td>
                             <td>
+                                <p class="mb-0 mt-4">{{  $item->quantity  }} </p>
+                            </td>
                             <td>
                                 <form action="{{ route('cart.update', $item->id) }}" method="POST">
                                     @csrf
@@ -68,9 +70,6 @@
                                     <button type="submit" class="btn btn-sm btn-success">Update</button>
                                 </form>
                             </td>
-                            </td>
-                            <td>
-                                <p class="mb-0 mt-4"> $</p>
                             </td>
                             <td>
                                 <form action="{{ route('cart.remove', $item->id) }}" method="POST">
