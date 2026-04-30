@@ -30,6 +30,7 @@ class CartController extends Controller
         if (!auth()->check()) {
             return redirect()->route('login')->with('error', 'Please login to add products to cart.');
         }
+
         $product = Product::findOrFail($id);
 
         $cart = Cart::firstOrCreate([

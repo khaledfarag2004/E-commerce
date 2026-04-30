@@ -13,8 +13,8 @@ public function up(): void
 Schema::create('roles', function (Blueprint $table) {
 $table->id();
 $table->string('name');
-$table->string('permission')->nullable();
 $table->boolean('status')->default(1);
+$table->string('permission')->nullable();
 $table->timestamps();
 });
 }

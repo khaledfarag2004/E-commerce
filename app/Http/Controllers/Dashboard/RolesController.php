@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\EditRoleRequest;
 use App\Http\Requests\Dashboard\RoleRequest;
+use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class RolesController extends Controller
         return redirect()->route('roles')->with('success', 'Role created successfully');
     }
 
-    public function edit(Role $role){
+    public function edit(Role $role, Permission $permission){
         return view('dashboard.roles.edit', compact('role'));
     }
 

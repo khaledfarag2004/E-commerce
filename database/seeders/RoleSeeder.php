@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role as RoleModel;
+use Spatie\Permission\Models\Permission as PermissionModel;
+use App\Models\User;
 
 class RoleSeeder extends Seeder
 {
@@ -26,5 +31,7 @@ class RoleSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+
     }
 }

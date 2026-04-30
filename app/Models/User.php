@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 #[Fillable([
     'name',
@@ -24,8 +25,9 @@ use Illuminate\Notifications\Notifiable;
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
+    use HasFactory, Notifiable, HasRoles;
+
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
 
     /**
      * Get the attributes that should be cast.

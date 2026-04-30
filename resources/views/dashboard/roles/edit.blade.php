@@ -88,7 +88,10 @@
                 <!-- Product Name -->
                 <label>Name</label>
                 <input type="text" name="name" value=" {{ old('name', $role->name) }}">
-
+                <select name="status">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
 
                 <!-- Status -->
                 <button type="submit" class="btn-update">Update Product</button>

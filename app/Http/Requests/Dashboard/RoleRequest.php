@@ -24,6 +24,7 @@ class RoleRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:roles,name',
+            'status'=>'required'
         ];
     }
 }
